@@ -3,6 +3,7 @@ using FilmesApi.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FilmesAPI.Controllers
@@ -39,6 +40,38 @@ namespace FilmesAPI.Controllers
                 return Ok(enderecoDto);
             }
             return NotFound();
+        }
+
+        [HttpGet]
+        public IEnumerable<Endereco> RecuperaEnderecos()
+        {
+            return _context.Enderecos;
+        }       
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizaEndereco(int id, [FromBody] UpdateEnderecoDto enderecoDto)
+        {
+            Endereco endereco = _context.Enderecos.FirstOrDefault(endereco => endereco.Id == id);
+            if (endereco == null)
+            {
+                return NotFound();
+            }
+            _mapper.Map(enderecoDto, endereco);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletaEndereco(int id)
+        {
+            Endereco endereco = _context.Enderecos.FirstOrDefault(endereco => endereco.Id == id);
+            if (endereco == null)
+            {
+                return NotFound();
+            }
+            _context.Remove(endereco);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }
