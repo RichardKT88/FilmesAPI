@@ -16,5 +16,7 @@ namespace FilmesAPI.Models
         public int EnderecoFK { get; set; }
         public int GerenteFK { get; set; }
         public virtual Gerente Gerente { get; set; }
+        [JsonIgnore]
+        public virtual List<Sessao> Sessoes { get; set; }
     }
 }
