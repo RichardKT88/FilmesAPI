@@ -1,44 +1,33 @@
-﻿using AutoMapper;
-using FilmesApi.Data;
-using FilmesAPI.Data.Dtos.Sessao;
-using FilmesAPI.Models;
+﻿using FilmesAPI.Data.Dtos.Sessao;
+using FilmesAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
 
 namespace FilmesAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class SessaoController : ControllerBase
     {
-        private readonly AppDbContext _context;
-        private readonly IMapper _mapper;
-        public SessaoController(AppDbContext context, IMapper mapper)
+        private SessaoService _sessaoService;
+
+        public SessaoController(SessaoService sessaoService)
         {
-            _context = context;
-            _mapper = mapper;
+            _sessaoService = sessaoService;
         }
 
         [HttpPost]
-        public IActionResult AdicionaSessao(CreateSessaoDto dto) 
+        public IActionResult AdicionaSessao(CreateSessaoDto dto)
         {
-            Sessao sessao = _mapper.Map<Sessao>(dto);
-            _context.Sessoes.Add(sessao);
-            _context.SaveChanges();
-            return CreatedAtAction(nameof(RecuperaSessoesPorId), new { Id = sessao.Id }, sessao);
-
+            ReadSessaoDto readDto = _sessaoService.AdicionaSessao(dto);
+            return CreatedAtAction(nameof(RecuperaSessoesPorId), new { Id = readDto.Id }, readDto);
         }
+
         [HttpGet("{id}")]
-        private IActionResult RecuperaSessoesPorId(int id)
+        public IActionResult RecuperaSessoesPorId(int id)
         {
-            Sessao sessao = _context.Sessoes.FirstOrDefault(sessao => sessao.Id == id);
-            if (sessao != null)
-            {
-                ReadSessaoDto sessaoDto = _mapper.Map<ReadSessaoDto>(sessao);
-                return Ok(sessaoDto);
-            }
-            return NotFound();
+            ReadSessaoDto readDto = _sessaoService.RecuperaSessoesPorId(id);
+            if (readDto == null) return NotFound();
+            return Ok(readDto);
         }
     }
 }
