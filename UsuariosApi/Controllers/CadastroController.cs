@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentResults;
+using Microsoft.AspNetCore.Mvc;
 using UsuariosApi.Data.Dtos;
+using UsuariosApi.Services;
 
 namespace UsuariosApi.Controllers
 {
@@ -7,11 +9,19 @@ namespace UsuariosApi.Controllers
     [ApiController]
     public class CadastroController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult CadastroUsuario(CreateUsuarioDto model) 
+        private CadastroService _cadastroService;
+
+        public CadastroController(CadastroService cadastroService)
         {
-            //TODO chamar o service
-            return Ok();
+            _cadastroService = cadastroService;
+        }
+
+        [HttpPost]
+        public IActionResult CadastroUsuario(CreateUsuarioDto createDto) 
+        {
+            Result resultado = _cadastroService.CadastroUsuario(createDto);
+            if (resultado.IsFailed) return StatusCode(500);
+            return Ok(resultado);
         }
     }
 }
