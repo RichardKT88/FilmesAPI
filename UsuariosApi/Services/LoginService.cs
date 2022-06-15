@@ -24,7 +24,7 @@ namespace UsuariosApi.Services
                 .UserManager
                 .Users
                 .FirstOrDefault(usuario =>
-                usuario.NormalizedUserName == email.ToUpper());
+                usuario.NormalizedEmail == email.ToUpper());
         }
 
         public Result LogaUsuario(LoginRequest request)
