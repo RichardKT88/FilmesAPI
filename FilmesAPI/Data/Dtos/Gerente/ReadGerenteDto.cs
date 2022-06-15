@@ -1,7 +1,7 @@
-﻿using FilmesAPI.Models;
+﻿using FilmesApi.Models;
 using System.Collections.Generic;
 
-namespace FilmesAPI.Data.Dtos
+namespace FilmesApi.Data.Dtos
 {
     public class ReadGerenteDto
     {

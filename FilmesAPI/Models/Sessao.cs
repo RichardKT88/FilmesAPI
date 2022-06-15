@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace FilmesAPI.Models
+namespace FilmesApi.Models
 {
     public class Sessao
     {

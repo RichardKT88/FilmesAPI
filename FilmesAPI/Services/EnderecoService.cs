@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using FilmesAPI.Data;
-using FilmesAPI.Models;
-using FilmesAPI.Data.Dtos;
+using FilmesApi.Data;
+using FilmesApi.Models;
+using FilmesApi.Data.Dtos;
 using FluentResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FilmesAPI.Services
+namespace FilmesApi.Services
 {
     public class EnderecoService
     {

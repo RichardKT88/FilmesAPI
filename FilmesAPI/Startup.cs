@@ -1,5 +1,5 @@
-using FilmesAPI.Data;
-using FilmesAPI.Services;
+using FilmesApi.Data;
+using FilmesApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 
-namespace FilmesAPI
+namespace FilmesApi
 {
     public class Startup
     {

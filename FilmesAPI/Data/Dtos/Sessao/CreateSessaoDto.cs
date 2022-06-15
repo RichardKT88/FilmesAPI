@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FilmesAPI.Data.Dtos.Sessao
+namespace FilmesApi.Data.Dtos.Sessao
 {
     public class CreateSessaoDto
     {

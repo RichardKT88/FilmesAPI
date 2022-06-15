@@ -1,7 +1,7 @@
-﻿using FilmesAPI.Models;
+﻿using FilmesApi.Models;
 using System;
 
-namespace FilmesAPI.Data.Dtos.Sessao
+namespace FilmesApi.Data.Dtos.Sessao
 {
     public class ReadSessaoDto
     {

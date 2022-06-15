@@ -1,8 +1,8 @@
-﻿using FilmesAPI.Data.Dtos.Sessao;
-using FilmesAPI.Services;
+﻿using FilmesApi.Data.Dtos.Sessao;
+using FilmesApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FilmesAPI.Controllers
+namespace FilmesApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

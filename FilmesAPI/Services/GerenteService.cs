@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using FilmesAPI.Data;
-using FilmesAPI.Data.Dtos;
-using FilmesAPI.Models;
+using FilmesApi.Data;
+using FilmesApi.Data.Dtos;
+using FilmesApi.Models;
 using FluentResults;
 using System.Linq;
 
-namespace FilmesAPI.Services
+namespace FilmesApi.Services
 {
     public class GerenteService
     {

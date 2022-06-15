@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using FilmesAPI.Data.Dtos;
-using FilmesAPI.Models;
+using FilmesApi.Data.Dtos;
+using FilmesApi.Models;
 using System.Linq;
 
-namespace FilmesAPI.Profiles
+namespace FilmesApi.Profiles
 {
     public class GerenteProfile : Profile
     {

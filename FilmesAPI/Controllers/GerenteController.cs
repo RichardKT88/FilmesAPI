@@ -1,9 +1,9 @@
-﻿using FilmesAPI.Data.Dtos;
-using FilmesAPI.Services;
+﻿using FilmesApi.Data.Dtos;
+using FilmesApi.Services;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FilmesAPI.Controllers
+namespace FilmesApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
