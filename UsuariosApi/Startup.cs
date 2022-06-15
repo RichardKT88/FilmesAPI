@@ -24,7 +24,7 @@ namespace UsuariosApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UserDbContext>(options => 
-                options.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
+                options.UseMySql(Configuration.GetConnectionString("UsuarioConnection"), new MySqlServerVersion(new Version(8, 0, 28))));
             services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
                 opt => opt.SignIn.RequireConfirmedEmail = true
                 )
