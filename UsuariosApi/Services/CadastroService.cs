@@ -14,7 +14,7 @@ namespace UsuariosApi.Services
     public class CadastroService
     {
         private IMapper _mapper;
-        private UserManager<IdentityUser<int>> _userManager;
+        private UserManager<IdentityUser<int>> _userManager;      
         private EmailService _emailService;
         private RoleManager<IdentityRole<int>> _roleManager;
 
