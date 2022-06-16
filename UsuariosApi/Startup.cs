@@ -23,8 +23,7 @@ namespace UsuariosApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UserDbContext>(options => 
-                options.UseMySql(Configuration.GetConnectionString("UsuarioConnection"), new MySqlServerVersion(new Version(8, 0, 28))));
+            services.AddDbContext<UserDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
             services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
                 opt => opt.SignIn.RequireConfirmedEmail = true
                 )
